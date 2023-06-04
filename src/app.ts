@@ -13,7 +13,7 @@ import indexRouter from "./routes";
 
 const app = express();
 
-const { PORT, NODE_ENV } = process.env;
+const { PORT = 3333, NODE_ENV } = process.env;
 
 app.use(cors({ origin: "*" }));
 app.use(helmet());
@@ -32,7 +32,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const status = err.s || err.status || 500;
   const message = err.m || "문제가 발생했습니다. 잠시 후 다시 시도해주세요.";
 
-  console.error("Catch Error:", err);
+  console.error("SERVER ERROR:", err);
 
   return res.status(status).send({
     result: false,
