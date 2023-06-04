@@ -1,1 +1,1 @@
-Express + Typeorm (MySQL)
+# Gather My Cookie Server
